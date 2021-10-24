@@ -15,6 +15,7 @@
     }
   }
 ```
+
 ```
   fragment AccountAuthInfo on Account {
     id
@@ -26,6 +27,7 @@
     }
   }
 ```
+
 ```
   query Me {
     me {
@@ -33,6 +35,7 @@
     }
   }
 ```
+
 ```
   query AccountAuth {
     me {
@@ -40,6 +43,7 @@
     }
   }
 ```
+
 ```
   query AccountDetails($id: ID!) {
     account(id: $id) {
@@ -53,6 +57,7 @@
     }
   }
 ```
+
 ```
   query LastAccountSharesAction($account: ID!, $vault: String!, $from: BigInt!) {
     account(id: $account) {
@@ -83,6 +88,7 @@
     type
   }
 ```
+
 ```
   fragment AssetWithPrice on Asset {
     ...Asset
@@ -128,6 +134,7 @@
     }
   }
 ```
+
 ```
   query FundDetailsFromComptroller($comptroller: String!) {
     funds(where: { accessor: $comptroller }, first: 1) {

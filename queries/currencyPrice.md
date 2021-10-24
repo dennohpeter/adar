@@ -9,6 +9,7 @@ fragment AssetAmount on AssetAmount {
     }
   }
 ```
+
 ```
   fragment CurrencyPrice on CurrencyPrice {
     id

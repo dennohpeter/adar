@@ -6,6 +6,7 @@ fragment Portfolio on PortfolioState {
     }
   }
 ```
+
 ```
   fragment Holding on HoldingState {
     id
@@ -15,6 +16,7 @@ fragment Portfolio on PortfolioState {
     }
   }
 ```
+
 ```
   query FundHoldings($id: ID!) {
     fund(id: $id) {

@@ -65,6 +65,7 @@
     }
   }
 ```
+
 ```
   fragment InvestmentSharesChange on InvestmentSharesChangeInterface {
     shares
@@ -100,6 +101,7 @@
     }
   }
 ```
+
 ```
   fragment SharesChangeWithFund on SharesChangeInterface {
     ...SharesChange
@@ -115,6 +117,7 @@
     }
   }
 ```
+
 ```
   fragment InvestmentSharesChangeWithFund on InvestmentSharesChangeInterface {
     ...InvestmentSharesChange
@@ -130,6 +133,7 @@
     }
   }
 ```
+
 ```
   query FundSharesChanges($id: ID!) {
     fund(id: $id) {
@@ -140,6 +144,7 @@
     }
   }
 ```
+
 ```
   query FundInvestmentSharesChanges($id: ID!) {
     fund(id: $id) {
@@ -203,6 +208,7 @@
     }
   }
 ```
+
 ```
   query InvestorFundsInvestmentSharesChanges($id: ID!) {
     account(id: $id) {

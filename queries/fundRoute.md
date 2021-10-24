@@ -11,6 +11,7 @@
     }
   }
 ```
+
 ```
   fragment Fee on FeeSettingInterface {
     id
@@ -30,151 +31,198 @@
   }
 
 ```
-  fragment ManagementFeeSetting on ManagementFeeSetting {
-    scaledPerSecondRate
-  }
-```
-```
-  fragment PerformanceFeeSetting on PerformanceFeeSetting {
-    rate
-    period
-  }
-```
-```
-  fragment EntranceRateBurnFeeSetting on EntranceRateBurnFeeSetting {
-    rate
-  }
-```
-```
-  fragment EntranceRateDirectFeeSetting on EntranceRateDirectFeeSetting {
-    rate
-  }
-```
-```
-  query FundPolicies($comptrollerProxy: ID!) {
-    comptrollerProxy(id: $comptrollerProxy) {
-      id
-      policySettings {
-        id
-        policy {
-          id
-        }
-        ...AdapterBlacklistSetting
-        ...AdapterWhitelistSetting
-        ...AssetBlacklistSetting
-        ...AssetWhitelistSetting
-        ...InvestorWhitelistSetting
-        ...MaxConcentrationSetting
-        ...MinMaxInvestmentSetting
-        ...BuySharesCallerWhitelistSetting
-        ...GuaranteedRedemptionSetting
-      }
-    }
-  }
+
+fragment ManagementFeeSetting on ManagementFeeSetting {
+scaledPerSecondRate
+}
 
 ```
+
 ```
-  fragment AdapterBlacklistSetting on AdapterBlacklistSetting {
-    listed
-    enabled
-  }
+
+fragment PerformanceFeeSetting on PerformanceFeeSetting {
+rate
+period
+}
+
 ```
+
 ```
-  fragment AdapterWhitelistSetting on AdapterWhitelistSetting {
-    listed
-    enabled
-  }
+
+fragment EntranceRateBurnFeeSetting on EntranceRateBurnFeeSetting {
+rate
+}
+
 ```
+
 ```
-  fragment AssetBlacklistSetting on AssetBlacklistSetting {
-    listed
-    enabled
-  }
+
+fragment EntranceRateDirectFeeSetting on EntranceRateDirectFeeSetting {
+rate
+}
+
 ```
+
 ```
-  fragment AssetWhitelistSetting on AssetWhitelistSetting {
-    listed
-    enabled
-  }
+
+query FundPolicies($comptrollerProxy: ID!) {
+comptrollerProxy(id: $comptrollerProxy) {
+id
+policySettings {
+id
+policy {
+id
+}
+...AdapterBlacklistSetting
+...AdapterWhitelistSetting
+...AssetBlacklistSetting
+...AssetWhitelistSetting
+...InvestorWhitelistSetting
+...MaxConcentrationSetting
+...MinMaxInvestmentSetting
+...BuySharesCallerWhitelistSetting
+...GuaranteedRedemptionSetting
+}
+}
+}
+
 ```
+
 ```
-  fragment InvestorWhitelistSetting on InvestorWhitelistSetting {
-    enabled
-    listedInvestors: listed(first: 1000) {
-      id
-    }
-  }
+
+fragment AdapterBlacklistSetting on AdapterBlacklistSetting {
+listed
+enabled
+}
+
 ```
+
 ```
-  fragment MaxConcentrationSetting on MaxConcentrationSetting {
-    enabled
-    maxConcentration
-  }
+
+fragment AdapterWhitelistSetting on AdapterWhitelistSetting {
+listed
+enabled
+}
+
 ```
+
 ```
-  fragment MinMaxInvestmentSetting on MinMaxInvestmentSetting {
-    enabled
-    minInvestmentAmount
-    maxInvestmentAmount
-  }
+
+fragment AssetBlacklistSetting on AssetBlacklistSetting {
+listed
+enabled
+}
+
 ```
+
 ```
-  fragment BuySharesCallerWhitelistSetting on BuySharesCallerWhitelistSetting {
-    enabled
-    listed
-  }
+
+fragment AssetWhitelistSetting on AssetWhitelistSetting {
+listed
+enabled
+}
+
 ```
+
 ```
-  fragment GuaranteedRedemptionSetting on GuaranteedRedemptionSetting {
-    enabled
-    startTimestamp
-    duration
-  }
+
+fragment InvestorWhitelistSetting on InvestorWhitelistSetting {
+enabled
+listedInvestors: listed(first: 1000) {
+id
+}
+}
+
+```
+
+```
+
+fragment MaxConcentrationSetting on MaxConcentrationSetting {
+enabled
+maxConcentration
+}
+
+```
+
+```
+
+fragment MinMaxInvestmentSetting on MinMaxInvestmentSetting {
+enabled
+minInvestmentAmount
+maxInvestmentAmount
+}
+
+```
+
+```
+
+fragment BuySharesCallerWhitelistSetting on BuySharesCallerWhitelistSetting {
+enabled
+listed
+}
+
+```
+
+```
+
+fragment GuaranteedRedemptionSetting on GuaranteedRedemptionSetting {
+enabled
+startTimestamp
+duration
+}
+
 ```
 #### OffchainFundDetails
 
 ```
-  query OffchainFundDetails($address: String!) {
-    fund(where: { address: $address }) {
-      id
-      description
-      email
-      managerDescription
-      postalAddress
-      strategies(orderBy: { name: asc }) {
-        id
-        name
-      }
-      telegram
-      twitter
-      website
-    }
-  }
+
+query OffchainFundDetails($address: String!) {
+fund(where: { address: $address }) {
+id
+description
+email
+managerDescription
+postalAddress
+strategies(orderBy: { name: asc }) {
+id
+name
+}
+telegram
+twitter
+website
+}
+}
+
 ```
+
 ```
-  mutation OffchainUpsertFund(
-    $address: String!
-    $description: String
-    $email: String
-    $managerDescription: String
-    $postalAddress: String
-    $strategies: [String!]
-    $telegram: String
-    $twitter: String
-    $website: String
-  ) {
-    upsertFund(
-      address: $address
-      description: $description
-      email: $email
-      managerDescription: $managerDescription
-      postalAddress: $postalAddress
-      strategies: $strategies
-      telegram: $telegram
-      twitter: $twitter
-      website: $website
-    ) {
-      id
-    }
-  }
+
+mutation OffchainUpsertFund(
+$address: String!
+$description: String
+$email: String
+$managerDescription: String
+$postalAddress: String
+$strategies: [String!]
+$telegram: String
+$twitter: String
+$website: String
+) {
+upsertFund(
+address: $address
+description: $description
+email: $email
+managerDescription: $managerDescription
+postalAddress: $postalAddress
+strategies: $strategies
+telegram: $telegram
+twitter: $twitter
+website: $website
+) {
+id
+}
+}
+
+```
+
 ```
