@@ -32,6 +32,7 @@
 
 ```
 
+```
 fragment ManagementFeeSetting on ManagementFeeSetting {
 scaledPerSecondRate
 }
@@ -172,6 +173,7 @@ duration
 }
 
 ```
+
 #### OffchainFundDetails
 
 ```
@@ -222,7 +224,5 @@ website: $website
 id
 }
 }
-
-```
 
 ```
